@@ -1,0 +1,49 @@
+
+<div class="flex justify-center mt-20">
+  <div class="bg-white p-8 rounded shadow w-full max-w-3xl border border-gray-300">
+
+  <h2 class="text-xl font-bold mb-6">Editar Perfil</h2>
+
+  <form [formGroup]="profileForm" (ngSubmit)="guardar()" class="grid md:grid-cols-2 gap-4">
+
+    <div>
+      <input formControlName="nombres"
+      placeholder="Nombres"
+      class="w-full p-2 border border-gray-300"
+      [class.border-red-500]="nombres?.invalid && nombres?.touched">
+
+      <p *ngIf="nombres?.invalid && nombres?.touched" class="text-red-500 text-sm">
+      Nombre requerido
+      </p>
+    </div>
+
+    <div>
+      <input formControlName="apellidos"
+      placeholder="Apellidos"
+      class="w-full p-2 border border-gray-300"
+      [class.border-red-500]="apellidos?.invalid && apellidos?.touched">
+
+      <p *ngIf="apellidos?.invalid && apellidos?.touched" class="text-red-500 text-sm">
+      Apellido requerido
+      </p>
+    </div>
+
+    <input formControlName="telefono" placeholder="Teléfono" class="p-2 border border-gray-300">
+
+    <input formControlName="email" placeholder="Correo electrónico" class="p-2 border border-gray-300">
+
+    <input formControlName="identidad" placeholder="Número de identidad" class="p-2 border border-gray-300">
+
+    <input type="date" formControlName="nacimiento" class="p-2 border border-gray-300">
+
+    <div class="md:col-span-2">
+      <button class="bg-blue-600 text-white px-6 py-2 rounded disabled:opacity-50"
+      [disabled]="profileForm.invalid">
+      Guardar
+      </button>
+    </div>
+
+  </form>
+
+  </div>
+</div>

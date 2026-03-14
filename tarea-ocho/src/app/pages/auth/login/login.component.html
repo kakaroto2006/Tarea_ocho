@@ -1,0 +1,36 @@
+
+<div class="flex justify-center items-center min-h-screen bg-blue-600">
+  <div class="bg-white p-8 rounded shadow w-full max-w-md border border-gray-300">
+    <h2 class="text-xl font-bold mb-6 text-center">Iniciar Sesión</h2>
+
+    <form [formGroup]="loginForm" (ngSubmit)="submit()">
+
+      <input type="email"
+      formControlName="email"
+      placeholder="Email"
+      class="w-full p-2 border border-gray-300 mb-2"
+      [class.border-red-500]="email?.invalid && email?.touched">
+
+      <p *ngIf="email?.invalid && email?.touched" class="text-red-500 text-sm">
+        Email inválido
+      </p>
+
+      <input type="password"
+      formControlName="password"
+      placeholder="Contraseña"
+      class="w-full p-2 border border-gray-300 mt-4 mb-2"
+      [class.border-red-500]="password?.invalid && password?.touched">
+
+      <p *ngIf="password?.invalid && password?.touched" class="text-red-500 text-sm">
+        La contraseña debe tener al menos 8 caracteres
+      </p>
+
+      <button
+      class="bg-blue-600 text-white w-full mt-6 p-2 rounded disabled:opacity-50"
+      [disabled]="loginForm.invalid">
+      Login
+      </button>
+
+    </form>
+  </div>
+</div>
